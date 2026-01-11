@@ -6,46 +6,53 @@
 <title>Sähkö & Sää</title>
 
 <style>
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 100vh;
-}
-
-/* Kännykälle */
-@media (max-width: 768px) {
-  body {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+  html, body {
+    height: 100%;
+    margin: 0;
   }
-}
 
-.frame-wrapper {
-  overflow: hidden;
-}
+  /* Desktop: kaksi saraketta vierekkäin */
+  body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh; /* tarvitaan mobiilin prosenttiasetuksille */
+  }
 
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+  .frame-wrapper {
+    overflow: hidden;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* Kännykälle: yksi sarake, korkeus 40% / 60% (viewportin mukaan) */
+  @media (max-width: 768px) {
+    body {
+      grid-template-columns: 1fr;
+      /* käytetään vh-yksiköitä varmistaaksemme tarkan 40%/60% viewportista */
+      grid-template-rows: 40vh 60vh;
+      height: 100vh;
+    }
+
+    /* varmistetaan että wrapperit venyvät riviensä korkeuteen */
+    .frame-wrapper {
+      height: 100%;
+    }
+  }
 </style>
 </head>
-
 <body>
 
-<div class="frame-wrapper">
-  <iframe src="https://www.sahkonhintatanaan.fi/"></iframe>
-</div>
+  <div class="frame-wrapper">
+    <iframe src="https://www.sahkonhintatanaan.fi/"></iframe>
+  </div>
 
-<div class="frame-wrapper">
-  <iframe src="https://www.foreca.fi/Finland/Haapavesi/10vrk"></iframe>
-</div>
+  <div class="frame-wrapper">
+    <iframe src="https://www.foreca.fi/Finland/Haapavesi/10vrk"></iframe>
+  </div>
 
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="fi">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sähkö & Sää</title>
 
 <style>
@@ -12,7 +13,16 @@ html, body {
 
 body {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* rinnakkain */
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+/* Kännykälle */
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 }
 
 .frame-wrapper {
@@ -25,8 +35,8 @@ iframe {
   border: none;
 }
 </style>
-
 </head>
+
 <body>
 
 <div class="frame-wrapper">
